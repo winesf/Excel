@@ -1,5 +1,3 @@
-import './scss/index.scss';
-const a = 3;
-const b = 6;
+import './scss/index.scss'
 
-console.log(a+b+10);
+console.log('Working!')
