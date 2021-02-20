@@ -1,0 +1,19 @@
+version: "2.4"
+
+services:
+  nodejs:
+    image: node:alpine3.13
+    container_name: nodejs
+    volumes:
+      - ./:/home/node/app
+    working_dir: /home/node/app
+    command: sh -c "npm i && npm run build"
+  webhost:
+    image: nginx:stable
+    container_name: webhost
+    ports:
+      - 80:80
+    volumes:
+      - ./dist:/usr/share/nginx/html
+    depends_on:
+      - nodejs
